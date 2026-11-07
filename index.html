@@ -1,0 +1,778 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Kevin Willian Basso De Pauli — Desenvolvedor Full Stack com foco em aplicações web, automação, integrações SAP e AWS.">
+  <meta name="theme-color" content="#ffffff">
+  <title>Kevin Pauli | Desenvolvedor Full Stack</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --page: #ffffff;
+      --surface: #ffffff;
+      --surface-subtle: #f6f8fa;
+      --border: #d1d9e0;
+      --text: #1f2328;
+      --muted: #59636e;
+      --link: #0969da;
+      --green: #1a7f37;
+      --green-soft: #dafbe1;
+      --shadow: 0 1px 0 rgba(31, 35, 40, .04);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--text);
+      font: 15px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--link);
+      outline-offset: 3px;
+      border-radius: 3px;
+    }
+
+    .site-header {
+      min-height: 64px;
+      background: #f6f8fa;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      width: min(1280px, calc(100% - 48px));
+      min-height: 64px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--text);
+      font-size: 15px;
+      font-weight: 650;
+      text-decoration: none;
+    }
+
+    .brand:hover {
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border-radius: 50%;
+      background: #24292f;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 750;
+    }
+
+    .header-links {
+      display: flex;
+      align-items: center;
+      gap: 21px;
+    }
+
+    .header-links a {
+      color: #3d444d;
+      font-size: 13px;
+      font-weight: 550;
+    }
+
+    .layout {
+      width: min(1280px, calc(100% - 48px));
+      margin: 32px auto 72px;
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 32px;
+      align-items: start;
+    }
+
+    .profile {
+      position: sticky;
+      top: 24px;
+    }
+
+    .avatar {
+      display: grid;
+      width: 100%;
+      aspect-ratio: 1;
+      place-items: center;
+      overflow: hidden;
+      border: 1px solid rgba(31, 35, 40, .12);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 72% 25%, rgba(255,255,255,.25), transparent 25%),
+        linear-gradient(145deg, #1f6feb, #8250df 58%, #bf3989);
+      color: #fff;
+      font-size: clamp(52px, 7vw, 82px);
+      font-weight: 650;
+      letter-spacing: -.08em;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.15);
+    }
+
+    .profile h1 {
+      margin: 17px 0 1px;
+      font-size: 24px;
+      line-height: 1.25;
+      letter-spacing: -.035em;
+    }
+
+    .nickname {
+      display: block;
+      margin-bottom: 14px;
+      color: var(--muted);
+      font-size: 19px;
+      font-weight: 300;
+    }
+
+    .role {
+      margin: 0 0 16px;
+      color: #3d444d;
+      font-size: 15px;
+    }
+
+    .profile-summary {
+      margin: 0 0 16px;
+      color: #3d444d;
+    }
+
+    .profile-links {
+      display: grid;
+      gap: 9px;
+      padding-top: 15px;
+      border-top: 1px solid var(--border);
+    }
+
+    .profile-link {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      overflow-wrap: anywhere;
+      font-size: 13px;
+    }
+
+    .profile-link svg {
+      width: 16px;
+      height: 16px;
+      flex: 0 0 auto;
+      fill: currentColor;
+      color: #59636e;
+    }
+
+    .profile-note {
+      margin-top: 17px;
+      padding: 11px 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface-subtle);
+      color: #3d444d;
+      font-size: 12px;
+    }
+
+    .certifications {
+      margin-top: 22px;
+    }
+
+    .certifications h2 {
+      margin: 0 0 11px;
+      font-size: 15px;
+      letter-spacing: -.01em;
+    }
+
+    .certification-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .certification {
+      display: grid;
+      grid-template-columns: 52px minmax(0, 1fr);
+      gap: 10px;
+      align-items: center;
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface);
+    }
+
+    .certification img {
+      display: block;
+      width: 52px;
+      height: 52px;
+      border-radius: 4px;
+    }
+
+    .certification-name {
+      margin: 0 0 3px;
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 650;
+      line-height: 1.35;
+    }
+
+    .certification-meta {
+      margin: 0;
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.4;
+    }
+
+    .content {
+      min-width: 0;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      margin: 0 0 18px;
+      border-bottom: 1px solid var(--border);
+      scrollbar-width: thin;
+    }
+
+    .tabs a {
+      position: relative;
+      display: inline-block;
+      flex: 0 0 auto;
+      padding: 10px 12px 12px;
+      color: #3d444d;
+      font-size: 13px;
+      font-weight: 550;
+    }
+
+    .tabs a:first-child {
+      color: var(--text);
+      font-weight: 650;
+    }
+
+    .tabs a:first-child::after {
+      position: absolute;
+      right: 9px;
+      bottom: -1px;
+      left: 9px;
+      height: 2px;
+      background: #fd8c73;
+      content: "";
+    }
+
+    .readme {
+      padding: 30px 34px 38px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      box-shadow: var(--shadow);
+    }
+
+    .readme h2 {
+      margin: 29px 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+      font-size: 21px;
+      line-height: 1.3;
+      letter-spacing: -.025em;
+      scroll-margin-top: 22px;
+    }
+
+    .readme h2:first-child {
+      margin-top: 0;
+      padding-bottom: 0;
+      border: 0;
+      font-size: 29px;
+    }
+
+    .readme h3 {
+      margin: 18px 0 6px;
+      font-size: 17px;
+      line-height: 1.35;
+    }
+
+    .readme p {
+      margin: 0 0 14px;
+    }
+
+    .intro {
+      margin-bottom: 12px !important;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .badge-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: 17px 0 2px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border: 1px solid #d8dee4;
+      border-radius: 999px;
+      background: var(--surface-subtle);
+      color: #3d444d;
+      font-size: 12px;
+      font-weight: 550;
+    }
+
+    .callout {
+      margin: 16px 0 20px;
+      padding: 11px 15px;
+      border-left: 3px solid #8250df;
+      background: var(--surface-subtle);
+      color: #3d444d;
+    }
+
+    .skills-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 17px;
+    }
+
+    .skills-table th,
+    .skills-table td {
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .skills-table th {
+      background: var(--surface-subtle);
+      font-weight: 650;
+    }
+
+    .skills-table td:first-child {
+      width: 185px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .project {
+      margin: 16px 0;
+      padding: 17px 18px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: #fff;
+    }
+
+    .project h3 {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin: 0 0 7px;
+      font-size: 18px;
+    }
+
+    .project h3 a {
+      text-decoration: none;
+    }
+
+    .project h3 a:hover {
+      text-decoration: underline;
+    }
+
+    .project p {
+      margin-bottom: 10px;
+      color: #3d444d;
+      font-size: 14px;
+    }
+
+    .project p:last-child {
+      margin-bottom: 0;
+    }
+
+    .impact {
+      display: inline-block;
+      padding: 4px 9px;
+      border: 1px solid #aceebb;
+      border-radius: 999px;
+      background: var(--green-soft);
+      color: #116329;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .stack {
+      color: var(--muted) !important;
+      font-size: 12px !important;
+    }
+
+    .learning-list {
+      margin: 0 0 16px;
+      padding-left: 22px;
+    }
+
+    .learning-list li {
+      margin: 6px 0;
+    }
+
+    .connect-card {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin: 15px 0 0;
+    }
+
+    .connect-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      padding: 7px 13px;
+      border: 1px solid #d1d9e0;
+      border-radius: 6px;
+      background: linear-gradient(#fff, #f6f8fa);
+      color: #24292f;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .connect-button:hover {
+      border-color: #8c959f;
+      background: #f3f4f6;
+      text-decoration: none;
+    }
+
+    .footer {
+      width: min(1280px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 22px 0 30px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 230px minmax(0, 1fr);
+        gap: 24px;
+      }
+
+      .readme {
+        padding: 24px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .header-inner,
+      .layout,
+      .footer {
+        width: min(100% - 28px, 760px);
+      }
+
+      .header-links {
+        gap: 12px;
+      }
+
+      .header-links a {
+        font-size: 12px;
+      }
+
+      .layout {
+        grid-template-columns: 1fr;
+        margin-top: 22px;
+      }
+
+      .profile {
+        position: static;
+        display: grid;
+        grid-template-columns: 86px minmax(0, 1fr);
+        column-gap: 16px;
+        align-items: center;
+      }
+
+      .avatar {
+        grid-row: span 3;
+        width: 86px;
+        font-size: 29px;
+      }
+
+      .profile h1 {
+        margin: 0;
+        font-size: 20px;
+      }
+
+      .nickname {
+        margin: 0;
+        font-size: 15px;
+      }
+
+      .role {
+        margin: 3px 0 0;
+        font-size: 13px;
+      }
+
+      .profile-summary,
+      .profile-links,
+      .profile-note,
+      .certifications {
+        grid-column: 1 / -1;
+      }
+
+      .profile-summary {
+        margin: 15px 0 10px;
+      }
+
+      .profile-links {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .profile-note {
+        margin-top: 12px;
+      }
+
+      .certification-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .tabs {
+        margin-bottom: 12px;
+      }
+
+      .readme {
+        padding: 20px 17px 26px;
+      }
+
+      .readme h2:first-child {
+        font-size: 25px;
+      }
+
+      .skills-table td:first-child {
+        width: auto;
+        white-space: normal;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .header-inner {
+        gap: 12px;
+      }
+
+      .header-links {
+        gap: 9px;
+      }
+
+      .header-links a {
+        font-size: 11px;
+      }
+
+      .profile-links {
+        grid-template-columns: 1fr;
+      }
+
+      .certification-list {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-table th,
+      .skills-table td {
+        padding: 7px;
+        font-size: 12px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#inicio">
+        <span class="brand-mark" aria-hidden="true">KP</span>
+        <span>Kevin Pauli</span>
+      </a>
+      <nav class="header-links" aria-label="Navegação principal">
+        <a href="#sobre">Sobre</a>
+        <a href="#tecnologias">Tecnologias</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="layout" id="inicio">
+    <aside class="profile" aria-label="Perfil de Kevin Pauli">
+      <div class="avatar" role="img" aria-label="Monograma KP">KP</div>
+      <h1>Kevin Willian Basso De Pauli</h1>
+      <span class="nickname">kevin16willian-hub</span>
+      <p class="role">Desenvolvedor Full Stack</p>
+      <p class="profile-summary">Transformo processos complexos em aplicações e automações que simplificam o trabalho e geram impacto real para o negócio.</p>
+
+      <div class="profile-links">
+        <a class="profile-link" href="https://www.linkedin.com/in/kevin-willian" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146Zm4.943 12.248V6.169H2.542v7.225h2.401ZM3.743 5.182c.837 0 1.358-.554 1.358-1.247-.015-.708-.52-1.247-1.342-1.247-.822 0-1.358.539-1.358 1.247 0 .693.52 1.247 1.327 1.247h.015Zm4.86 8.212V9.359c0-.216.015-.432.08-.586.173-.431.568-.878 1.23-.878.868 0 1.216.662 1.216 1.633v3.866h2.401V9.25c0-2.113-1.127-3.096-2.63-3.096-1.216 0-1.75.67-2.053 1.14h.016V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4Z"/></svg>
+          LinkedIn
+        </a>
+        <a class="profile-link" href="mailto:kevin16willian@gmail.com">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 2A2.5 2.5 0 0 0 0 4.5v7A2.5 2.5 0 0 0 2.5 14h11a2.5 2.5 0 0 0 2.5-2.5v-7A2.5 2.5 0 0 0 13.5 2h-11Zm0 1h11a1.5 1.5 0 0 1 .994.377L8 8.955 1.506 3.377A1.5 1.5 0 0 1 2.5 3Zm-1.5 1.69 4.72 4.055-4.72 2.95V4.69Zm13.5 0v7.005l-4.72-2.95L14.5 4.69ZM2.5 13a1.5 1.5 0 0 1-1.047-.425l5.037-3.148L8 10.27l1.51-.843 5.037 3.148A1.5 1.5 0 0 1 13.5 13h-11Z"/></svg>
+          E-mail
+        </a>
+        <a class="profile-link" href="https://github.com/kevin16willian-hub" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+          GitHub
+        </a>
+        <span class="profile-link">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a6 6 0 0 0-6 6c0 4.418 6 10 6 10s6-5.582 6-10a6 6 0 0 0-6-6Zm0 8.25A2.25 2.25 0 1 1 8 3.75a2.25 2.25 0 0 1 0 4.5Z"/></svg>
+          Curitiba, Brasil
+        </span>
+      </div>
+      <div class="profile-note">Visão de negócio e engenharia de software para criar soluções digitais práticas, escaláveis e orientadas a resultados.</div>
+      <section class="certifications" aria-labelledby="certifications-title">
+        <h2 id="certifications-title">Certificações e badges AWS</h2>
+        <div class="certification-list">
+          <article class="certification">
+            <img src="https://images.credly.com/size/200x200/images/6f40bf38-1725-40d8-99a2-f6bb1bafec0e/blob" alt="Badge oficial AWS Agentic AI Demonstrated" width="52" height="52" loading="lazy" decoding="async">
+            <div>
+              <p class="certification-name">AWS Agentic AI Demonstrated</p>
+              <p class="certification-meta">Amazon Web Services<br>Emitido em ago. 2026 · válido até ago. 2027</p>
+            </div>
+          </article>
+          <article class="certification">
+            <img src="https://images.credly.com/size/200x200/images/b3885091-25bc-42d0-8989-34cca82f3056/blob" alt="Badge oficial AWS Serverless Demonstrated" width="52" height="52" loading="lazy" decoding="async">
+            <div>
+              <p class="certification-name">AWS Serverless Demonstrated</p>
+              <p class="certification-meta">Amazon Web Services<br>Emitido em jul. 2026 · válido até jul. 2027</p>
+            </div>
+          </article>
+          <article class="certification">
+            <img src="https://images.credly.com/size/200x200/images/ed8cf03b-6269-4265-a65b-68e67e49ce6b/blob" alt="Badge oficial AWS Application Networking Demonstrated" width="52" height="52" loading="lazy" decoding="async">
+            <div>
+              <p class="certification-name">AWS Application Networking Demonstrated</p>
+              <p class="certification-meta">Amazon Web Services<br>Emitido em jul. 2026 · válido até jul. 2027</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </aside>
+
+    <div class="content">
+      <nav class="tabs" aria-label="Seções da apresentação">
+        <a href="#sobre">Visão geral</a>
+        <a href="#tecnologias">Tecnologias</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#aprendizado">Aprendizado</a>
+      </nav>
+
+      <article class="readme">
+        <section id="sobre">
+          <h2>Kevin Willian Basso De Pauli</h2>
+          <p class="intro"><strong>Desenvolvedor Full Stack | Node.js, React, Python e AWS</strong></p>
+          <p>Transformo processos complexos em aplicações e automações que simplificam o trabalho e geram impacto real para o negócio.</p>
+          <div class="badge-list" aria-label="Principais tecnologias">
+            <span class="badge">Python</span>
+            <span class="badge">FastAPI</span>
+            <span class="badge">Node.js</span>
+            <span class="badge">React</span>
+            <span class="badge">AWS</span>
+            <span class="badge">Docker</span>
+          </div>
+
+          <h2>Sobre mim</h2>
+          <p>Sou <strong>Desenvolvedor Full Stack</strong>, de Curitiba, Brasil, com uma trajetória que conecta Finanças, Controladoria e Tecnologia. Essa experiência me ajuda a entender os desafios do negócio e criar soluções digitais práticas, escaláveis e orientadas a resultados.</p>
+          <p>Atuo no desenvolvimento de aplicações web, integrações com sistemas corporativos como SAP, soluções em nuvem AWS e automações. Meu foco é reduzir etapas manuais, modernizar processos e entregar software confiável, fácil de manter e evoluir.</p>
+          <blockquote class="callout">Uno visão de negócio e engenharia de software para transformar problemas operacionais em soluções que fazem diferença no dia a dia.</blockquote>
+        </section>
+
+        <section id="tecnologias">
+          <h2>Tecnologias</h2>
+          <table class="skills-table">
+            <thead>
+              <tr><th>Área</th><th>Tecnologias e práticas</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Linguagens e Backend</td><td>Python, FastAPI, Node.js, Express, JavaScript, TypeScript</td></tr>
+              <tr><td>Frontend</td><td>React, Vite, React Native, Flutter, Tailwind CSS</td></tr>
+              <tr><td>Bancos de dados e Dados</td><td>SQL Server, PostgreSQL, MySQL, SQLite, MongoDB, PySpark, Snowflake, Alteryx</td></tr>
+              <tr><td>Nuvem e DevOps</td><td>AWS (S3, EC2, Lambda, RDS, Athena, Glue), Terraform, Docker, Nginx, PM2</td></tr>
+              <tr><td>Ferramentas e Integrações</td><td>Power BI, Power Automate, SAP GUI Scripting, Microsoft Entra ID SSO, Git, GitHub, VS Code</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="projetos">
+          <h2>Projetos em destaque</h2>
+
+          <article class="project">
+            <h3><a href="https://github.com/kevin16willian-hub/SalesForecast" target="_blank" rel="noopener noreferrer">SalesForecast</a></h3>
+            <p>Aplicação corporativa para previsão de vendas, desenvolvida com React, Node.js e SQL Server. Conta com autenticação corporativa via Microsoft Entra ID, upload e validação de planilhas Excel, API REST protegida com controle de acesso hierárquico e deploy automatizado na AWS EC2.</p>
+            <p><span class="impact">Impacto: ~150 colaboradores por dia · economia potencial de R$ 145 mil/mês (R$ 1,7 milhão/ano)</span></p>
+          </article>
+
+          <article class="project">
+            <h3><a href="https://github.com/kevin16willian-hub/FlowCraft" target="_blank" rel="noopener noreferrer">FlowCraft</a></h3>
+            <p>Ferramenta oficial da <strong>Straumann</strong> para mapeamento de processos e colaboração visual, construída com React Flow, Server-Sent Events (SSE) e armazenamento na AWS S3.</p>
+            <p><span class="impact">Impacto: ~500 colaboradores por dia · US$ 10 mil/mês economizados em licenças da ferramenta anterior</span></p>
+          </article>
+
+          <article class="project">
+            <h3><a href="https://github.com/kevin16willian-hub/SapRecorder" target="_blank" rel="noopener noreferrer">SapRecorder</a></h3>
+            <p>Aplicação Python para gravar interações com o SAP GUI Scripting e gerar código reutilizável para automações. Permite que os próprios clientes registrem os scripts necessários às suas soluções, agilizando e descentralizando essa etapa do processo. Integrada ao FlowCraft.</p>
+          </article>
+        </section>
+
+        <section id="aprendizado">
+          <h2>Engenharia de IA, automação e qualidade</h2>
+          <p>Exploro abordagens <strong>AI-first</strong> para acelerar o desenvolvimento de software e automatizar fluxos de trabalho, integrando modelos, ferramentas e sistemas corporativos. Tenho interesse especial em agentes de IA, no ecossistema MCP e em práticas de qualidade que ajudem a criar soluções confiáveis, testáveis e úteis em produção.</p>
+          <ul class="learning-list">
+            <li><strong>IA generativa e agentes:</strong> implementação de agentes com Amazon Bedrock e AgentCore, conectando recursos de IA a ferramentas e fluxos de trabalho.</li>
+            <li><strong>Model Context Protocol (MCP):</strong> integração de modelos com ferramentas, dados e serviços por meio do protocolo MCP.</li>
+            <li><strong>Testes automatizados:</strong> automação de testes end-to-end e regressivos com Playwright e Python para validar fluxos críticos.</li>
+            <li><strong>Automação de processos:</strong> criação de automações que conectam aplicações, APIs e sistemas corporativos.</li>
+            <li><strong>Engenharia de dados:</strong> pipelines e processamento de dados com PySpark, AWS Glue, Athena e Snowflake.</li>
+          </ul>
+        </section>
+
+        <section id="contato">
+          <h2>Vamos conversar</h2>
+          <p>Entre em contato ou conheça mais do meu trabalho:</p>
+          <div class="connect-card">
+            <a class="connect-button" href="mailto:kevin16willian@gmail.com">E-mail</a>
+            <a class="connect-button" href="https://www.linkedin.com/in/kevin-willian" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a class="connect-button" href="https://github.com/kevin16willian-hub" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="footer">
+    Kevin Pauli · Desenvolvedor Full Stack · Curitiba, Brasil
+  </footer>
+</body>
+</html>
