@@ -51,60 +51,6 @@
       border-radius: 3px;
     }
 
-    .site-header {
-      min-height: 64px;
-      background: #f6f8fa;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .header-inner {
-      width: min(1280px, calc(100% - 48px));
-      min-height: 64px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 11px;
-      color: var(--text);
-      font-size: 15px;
-      font-weight: 650;
-      text-decoration: none;
-    }
-
-    .brand:hover {
-      text-decoration: none;
-    }
-
-    .brand-mark {
-      display: grid;
-      width: 34px;
-      height: 34px;
-      place-items: center;
-      border-radius: 50%;
-      background: #24292f;
-      color: #fff;
-      font-size: 12px;
-      font-weight: 750;
-    }
-
-    .header-links {
-      display: flex;
-      align-items: center;
-      gap: 21px;
-    }
-
-    .header-links a {
-      color: #3d444d;
-      font-size: 13px;
-      font-weight: 550;
-    }
-
     .layout {
       width: min(1280px, calc(100% - 48px));
       margin: 32px auto 72px;
@@ -322,25 +268,6 @@
       font-size: 16px;
     }
 
-    .badge-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin: 17px 0 2px;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      padding: 4px 10px;
-      border: 1px solid #d8dee4;
-      border-radius: 999px;
-      background: var(--surface-subtle);
-      color: #3d444d;
-      font-size: 12px;
-      font-weight: 550;
-    }
-
     .callout {
       margin: 16px 0 20px;
       padding: 11px 15px;
@@ -486,18 +413,9 @@
     }
 
     @media (max-width: 680px) {
-      .header-inner,
       .layout,
       .footer {
         width: min(100% - 28px, 760px);
-      }
-
-      .header-links {
-        gap: 12px;
-      }
-
-      .header-links a {
-        font-size: 12px;
       }
 
       .layout {
@@ -576,18 +494,6 @@
     }
 
     @media (max-width: 420px) {
-      .header-inner {
-        gap: 12px;
-      }
-
-      .header-links {
-        gap: 9px;
-      }
-
-      .header-links a {
-        font-size: 11px;
-      }
-
       .profile-links {
         grid-template-columns: 1fr;
       }
@@ -611,21 +517,6 @@
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="#inicio">
-        <span class="brand-mark" aria-hidden="true">KP</span>
-        <span>Kevin Pauli</span>
-      </a>
-      <nav class="header-links" aria-label="Navegação principal">
-        <a href="#sobre">Sobre</a>
-        <a href="#tecnologias">Tecnologias</a>
-        <a href="#projetos">Projetos</a>
-        <a href="#contato">Contato</a>
-      </nav>
-    </div>
-  </header>
-
   <main class="layout" id="inicio">
     <aside class="profile" aria-label="Perfil de Kevin Pauli">
       <div class="avatar" role="img" aria-label="Monograma KP">KP</div>
@@ -694,15 +585,6 @@
           <h2>Kevin Willian Basso De Pauli</h2>
           <p class="intro"><strong>Desenvolvedor Full Stack | Node.js, React, Python e AWS</strong></p>
           <p>Transformo processos complexos em aplicações e automações que simplificam o trabalho e geram impacto real para o negócio.</p>
-          <div class="badge-list" aria-label="Principais tecnologias">
-            <span class="badge">Python</span>
-            <span class="badge">FastAPI</span>
-            <span class="badge">Node.js</span>
-            <span class="badge">React</span>
-            <span class="badge">AWS</span>
-            <span class="badge">Docker</span>
-          </div>
-
           <h2>Sobre mim</h2>
           <p>Sou <strong>Desenvolvedor Full Stack</strong>, de Curitiba, Brasil, com uma trajetória que conecta Finanças, Controladoria e Tecnologia. Essa experiência me ajuda a entender os desafios do negócio e criar soluções digitais práticas, escaláveis e orientadas a resultados.</p>
           <p>Atuo no desenvolvimento de aplicações web, integrações com sistemas corporativos como SAP, soluções em nuvem AWS e automações. Meu foco é reduzir etapas manuais, modernizar processos e entregar software confiável, fácil de manter e evoluir.</p>
