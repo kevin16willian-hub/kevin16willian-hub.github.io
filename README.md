@@ -1,5 +1,3 @@
-<div align="center" dir="auto">
-
 # Kevin Willian Basso De Pauli
 ### Desenvolvedor Full Stack
 
@@ -23,8 +21,6 @@ Transformo processos complexos em aplicações e automações que simplificam o 
 <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React">
 <img src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white" alt="AWS">
 <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
-
-</div>
 
 ---
 
